@@ -172,6 +172,9 @@ return [
         //Use Personal Route Service Provider
         Src\User\Infrastructure\Services\RouteServiceProvider::class,
         Src\Book\Infrastructure\Services\RouteServiceProvider::class,
+
+        //Use Personal DepenedencyInversion Service Provider
+        Src\User\Infrastructure\Services\DependencyServiceProvider::class,
     ])->toArray(),
 
     /*

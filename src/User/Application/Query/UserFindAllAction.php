@@ -2,24 +2,18 @@
 
 namespace Src\User\Application\Query;
 
+use Src\Shared\Domain\Exception\CustomException;
+use Src\User\Domain\Contract\UserRepositoryInterface;
+
 final class UserFindAllAction
 {
-    public function __construct()
+    public function __construct(private UserRepositoryInterface $userRepositoryInterface)
     {
-        // Todo
+     
     }
 
     public function __invoke(): array
-    {
-        return [
-            [
-                'id' => 1,
-                'name' => 'Iván'
-            ],
-            [
-                'id' => 2,
-                'name' => 'Alicia'
-            ],
-        ];
+    { 
+        return $this->userRepositoryInterface->findAll();
     }
 }

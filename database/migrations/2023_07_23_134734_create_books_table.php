@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->text('description');
             $table->unsignedBigInteger('category_id');
-            $table->string('img')->nullable();
             $table->boolean('read')->default(false);
             $table->string('link')->nullable();
             $table->rememberToken();
