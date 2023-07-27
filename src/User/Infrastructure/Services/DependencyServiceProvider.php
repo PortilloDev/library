@@ -14,6 +14,14 @@ final class DependencyServiceProvider extends ServiceProvider
         $this->app->when(\Src\User\Application\Query\UserFindAllAction::class)
         ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
         ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+
+        $this->app->when(\Src\User\Application\Query\UserFindAction::class)
+        ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
+        ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+
+        $this->app->when(\Src\User\Application\Command\DeleteUserAction::class)
+        ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
+        ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
     }
 
     /**

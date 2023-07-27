@@ -19,9 +19,9 @@ final class UserRepository implements UserRepositoryInterface
     {
         return $this->model->all()->toArray();
     }
-    public function findeUser(): User
+    public function findeUser(int $id): ?User
     {
-            return new User();
+           return $this->model->find($id);
 
 
     }
@@ -31,6 +31,6 @@ final class UserRepository implements UserRepositoryInterface
     }
     public function remove(User $user): void
     {
-
+        $this->model->where('id',$user->id)->delete();;
     }
 }

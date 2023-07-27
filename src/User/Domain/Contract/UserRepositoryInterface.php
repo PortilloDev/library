@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 interface UserRepositoryInterface
 {
     public function findAll(): array;
-    public function findeUser(): User;
+    public function findeUser(int $id): ?User;
     public function save(User $user): void;
     public function remove(User $user): void;
 }
