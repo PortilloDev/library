@@ -8,19 +8,22 @@ use Src\User\Domain\Dto\UserDto;
 
 final class UserFindAction
 {
-    public function __construct(private UserRepositoryInterface $userRepositoryInterface)
+    public function __construct(private readonly UserRepositoryInterface $userRepositoryInterface)
     {
-     
+
     }
 
-    public function __invoke(int $id): mixed
-    { 
+    /**
+     * @throws CustomException
+     */
+    public function __invoke(int $id): array
+    {
         $user = $this->userRepositoryInterface->findeUser($id);
 
         if (null === $user) {
             throw new CustomException('Usuario no encontrado', 404);
         }
-        
+
         return[ new UserDto($user)];
     }
 }

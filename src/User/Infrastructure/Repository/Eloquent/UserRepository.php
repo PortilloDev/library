@@ -1,10 +1,11 @@
-<?php 
+<?php
 
 namespace Src\User\Infrastructure\Repository\Eloquent;
 
+use Illuminate\Support\Facades\DB;
 use Src\User\Domain\Contract\UserRepositoryInterface;
 use Src\User\Domain\User;
-
+use Src\User\Domain\ValueObject\UserValueObject;
 
 final class UserRepository implements UserRepositoryInterface
 {
@@ -25,9 +26,15 @@ final class UserRepository implements UserRepositoryInterface
 
 
     }
-    public function save(User $user): void
+    public function save(UserValueObject $userVO): int
     {
+       $user = User::create([
+            'name' => $userVO->getName()->value(),
+            'email' => $userVO->getEmail()->value(),
+            'password' => $userVO->getPassword()->value(),
+        ]);
 
+       return $user->id;
     }
     public function remove(User $user): void
     {
