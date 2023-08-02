@@ -11,21 +11,21 @@ final class DependencyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->when(\Src\User\Application\Query\UserFindAllAction::class)
+        $this->app->when(\Src\User\Application\Query\BookFindAllAction::class)
         ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
-        ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+        ->give(\Src\User\Infrastructure\Repository\Eloquent\BookRepository::class);
 
-        $this->app->when(\Src\User\Application\Command\CreateUserAction::class)
+        $this->app->when(\Src\User\Application\Command\CreateBookAction::class)
             ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
-            ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+            ->give(\Src\User\Infrastructure\Repository\Eloquent\BookRepository::class);
 
-        $this->app->when(\Src\User\Application\Query\UserFindAction::class)
+        $this->app->when(\Src\User\Application\Query\BookFindAction::class)
         ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
-        ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+        ->give(\Src\User\Infrastructure\Repository\Eloquent\BookRepository::class);
 
-        $this->app->when(\Src\User\Application\Command\DeleteUserAction::class)
+        $this->app->when(\Src\User\Application\Command\DeleteBookAction::class)
         ->needs(\Src\User\Domain\Contract\UserRepositoryInterface::class)
-        ->give(\Src\User\Infrastructure\Repository\Eloquent\UserRepository::class);
+        ->give(\Src\User\Infrastructure\Repository\Eloquent\BookRepository::class);
     }
 
     /**

@@ -6,12 +6,12 @@ use Illuminate\Http\Client\Request;
 use Illuminate\Http\JsonResponse;
 use Psr\Log\LoggerInterface;
 use Src\Shared\Infrastructure\Controller\AbstractApiController;
-use Src\User\Application\Command\DeleteUserAction;
+use Src\User\Application\Command\DeleteBookAction;
 
 final class DeleteUserController extends AbstractApiController
 {
-    private DeleteUserAction $deleteUserAction;
-    public function __construct(LoggerInterface $logger, DeleteUserAction $deleteUserAction)
+    private DeleteBookAction $deleteUserAction;
+    public function __construct(LoggerInterface $logger, DeleteBookAction $deleteUserAction)
     {
         parent::__construct($logger);
         $this->deleteUserAction = $deleteUserAction;

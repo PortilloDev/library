@@ -175,6 +175,7 @@ return [
 
         //Use Personal DepenedencyInversion Service Provider
         Src\User\Infrastructure\Services\DependencyServiceProvider::class,
+        Src\Book\Infrastructure\Services\DependencyServiceProvider::class,
     ])->toArray(),
 
     /*

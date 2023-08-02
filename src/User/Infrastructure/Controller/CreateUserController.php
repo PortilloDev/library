@@ -5,7 +5,7 @@ namespace Src\User\Infrastructure\Controller;
 use Illuminate\Http\JsonResponse;
 use Psr\Log\LoggerInterface;
 use Src\Shared\Infrastructure\Controller\AbstractApiController;
-use Src\User\Application\Command\CreateUserAction;
+use Src\User\Application\Command\CreateBookAction;
 use Src\User\Domain\ValueObject\EmailValueObject;
 use Src\User\Domain\ValueObject\NameValueObject;
 use Src\User\Domain\ValueObject\PasswordValueObject;
@@ -13,8 +13,8 @@ use Src\User\Infrastructure\Request\UserCreateRequest;
 
 final class CreateUserController extends AbstractApiController
 {
-    private CreateUserAction $createUserAction;
-    public function __construct(LoggerInterface $logger, CreateUserAction $createUserAction)
+    private CreateBookAction $createUserAction;
+    public function __construct(LoggerInterface $logger, CreateBookAction $createUserAction)
     {
         parent::__construct($logger);
         $this->createUserAction = $createUserAction;

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 namespace Src\User\Infrastructure\Controller;
@@ -6,12 +6,12 @@ namespace Src\User\Infrastructure\Controller;
 use Src\Shared\Infrastructure\Controller\AbstractApiController;
 use Illuminate\Http\JsonResponse;
 use Psr\Log\LoggerInterface;
-use Src\User\Application\Query\UserFindAction;
+use Src\User\Application\Query\BookFindAction;
 final class UserFindController extends AbstractApiController
 {
 
-    private UserFindAction $userFindAllAction;
-    public function __construct(LoggerInterface $logger, UserFindAction $userFindAllAction)
+    private BookFindAction $userFindAllAction;
+    public function __construct(LoggerInterface $logger, BookFindAction $userFindAllAction)
     {
         parent::__construct($logger);
         $this->userFindAllAction = $userFindAllAction;

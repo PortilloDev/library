@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->boolean('read')->default(false);
             $table->string('link')->nullable();
+            $table->string('img')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

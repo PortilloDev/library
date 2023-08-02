@@ -4,7 +4,7 @@ namespace Src\Shared\Domain\Exception;
 
 use Illuminate\Http\JsonResponse;
 
-final class CustomException extends \Exception
+class CustomException extends \Exception
 {
     public function toException(): JsonResponse
     {
